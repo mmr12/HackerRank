@@ -7,6 +7,7 @@ from sklearn.pipeline import make_pipeline
 import numpy as np
 import csv
 
+# read input from HackerRank
 def read_input():
     train_data = list()
     test_data = list()
@@ -21,6 +22,7 @@ def read_input():
     X_test = test_data
     return X_train,Y_train,X_test
 
+# read input from local source
 def read_csv():
     results = []
     with open("idea.csv") as csvfile:
@@ -41,6 +43,7 @@ def read_csv():
             X_test[i,j] = float(results[N+i+2][j])
     return X_train,Y_train,X_test
 
+# train model
 def fit_and_predict(X_train,Y_train,X_test):
     degree=2
     model = make_pipeline(PolynomialFeatures(degree), Ridge(normalize=False))
